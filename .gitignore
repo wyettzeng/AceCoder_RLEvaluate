@@ -1,2 +1,4 @@
 inferenced_output
 *.egg-info
+*.xlsx
+*.csv

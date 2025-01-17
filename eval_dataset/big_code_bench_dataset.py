@@ -6,6 +6,8 @@ from eval_dataset.base_eval_dataset import EvalDatasetBaseClass
 class BigCodeBenchDataset(EvalDatasetBaseClass):
     def __init__(self, split: str, subset: str):
         super().__init__()
+        assert split in ["complete", "instruct"]
+        assert subset in ["hard", "full"]
         self.split = split
         self.subset = subset
 
@@ -15,7 +17,7 @@ class BigCodeBenchDataset(EvalDatasetBaseClass):
         temperature = "0"
         model_flag = model_path.replace("/", "--")
         file_end = f"--main--bigcodebench{extra}-{split}--vllm-{temperature}-1-sanitized_calibrated_eval_results.json"
-        return f"inferenced output/bcb_results/{model_flag}{file_end}"
+        return f"inferenced_output/bcb_results/{model_flag}{file_end}"
 
     def load_accuracy(self, model_path: str) -> float:
         """Get the one shot accuracy as a floating point number"""

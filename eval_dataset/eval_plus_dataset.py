@@ -16,7 +16,7 @@ class EvalPlusDataset(EvalDatasetBaseClass):
         else:
             dataset_flag = "humaneval"
         model_flag = model_path.replace("/", "--")
-        return f"inferenced output/evalplus/rl_results/{dataset_flag}/{model_flag}_vllm_temp_{temp}.0-sanitized_eval_results.json"
+        return f"inferenced_output/evalplus/rl_results/{dataset_flag}/{model_flag}_vllm_temp_{temp}.0-sanitized.eval_results.json"
 
     def load_accuracy(self, model_path: str) -> float:
         """Get the one shot accuracy as a floating point number"""

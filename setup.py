@@ -12,5 +12,6 @@ setup(
     install_requires=[
         # comment the following if you have CUDA 11.8
         "pandas",
+        "openpyxl",
     ],
 )
