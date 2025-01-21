@@ -3,9 +3,9 @@ import pandas as pd
 from eval_dataset.constants import ALL_EVAL_DATASET
 
 MODELS = {
-    "01_17": "trained_models/lr10_w_E1_kl0.5_CodeRLTrain_llama3_IPS_max2048_____E1",
-    "01_17_chkp_1000": "trained_models/lr10_w_E1_kl0.5_CodeRLTrain_llama3_IPS_max2048_____E1/checkpoint-1000",
-    "01_17_chkp_1600": "trained_models/lr10_w_E1_kl0.5_CodeRLTrain_llama3_IPS_max2048_____E1/checkpoint-1600",
+    "01_21": "trained_models/lr10_w_E1_kl2.0_CodeRLTrain_llama3_IPS_max2048_____E1",
+    "01_21_chkp_2400": "trained_models/lr10_w_E1_kl2.0_CodeRLTrain_llama3_IPS_max2048_____E1/checkpoint-2400",
+    "01_21_chkp_3000": "trained_models/lr10_w_E1_kl2.0_CodeRLTrain_llama3_IPS_max2048_____E1/checkpoint-3000",
 }
 
 
