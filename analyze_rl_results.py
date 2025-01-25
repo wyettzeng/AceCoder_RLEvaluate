@@ -3,9 +3,9 @@ import pandas as pd
 from eval_dataset.constants import ALL_EVAL_DATASET
 
 MODELS = {
-    "01_21": "trained_models/lr10_w_E1_kl2.0_CodeRLTrain_llama3_IPS_max2048_____E1",
-    "01_21_chkp_2400": "trained_models/lr10_w_E1_kl2.0_CodeRLTrain_llama3_IPS_max2048_____E1/checkpoint-2400",
-    "01_21_chkp_3000": "trained_models/lr10_w_E1_kl2.0_CodeRLTrain_llama3_IPS_max2048_____E1/checkpoint-3000",
+    "Qwen 7B Instruct (non Coder)": "Qwen/Qwen2.5-7B-Instruct",
+    "Qwen RL 01-24": "CodeDPO/qwen25-ins-7b-coderm-reinforce-plus",
+    "Qwen Test Case RL 01-25": "CodeDPO/qwen25-ins-7b-testcaserm-7b-reinforce-plus",
 }
 
 
