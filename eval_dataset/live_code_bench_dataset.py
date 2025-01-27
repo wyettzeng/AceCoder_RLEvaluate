@@ -9,9 +9,10 @@ from eval_dataset.base_eval_dataset import EvalDatasetBaseClass
 class LiveCodeBenchDataset(EvalDatasetBaseClass):
     def get_saved_inference_file_path(self, model_path: str):
         # the model representation is the last part of the path
-        model_repr = model_path[model_path.rfind("/") :]
+        model_repr = model_path[model_path.rfind("/") + 1:]
         dir_path = f"inferenced_output/livecodebench/{model_repr}/"
-        dir_path + "Scenario.codegeneration_10_0.2_eval_all.json"
+        dir_path += "Scenario.codegeneration_10_0.2_eval_all.json"
+        return dir_path
 
     def load_accuracy(self, model_path: str) -> float:
         """Get the one shot accuracy as a floating point number"""
@@ -26,6 +27,6 @@ class LiveCodeBenchDataset(EvalDatasetBaseClass):
 
 if __name__ == "__main__":
     data = LiveCodeBenchDataset()
-    model_path = "mistral_instruct_v3_7b"
-    prompts = data.load_inference(model_path, 16)
-    print(prompts)
+    model_path = "CodeDPO/qwen25-coder-base-7b-testcaserm-7b-ppo-binary"
+    score = data.load_accuracy(model_path)
+    print(score)
