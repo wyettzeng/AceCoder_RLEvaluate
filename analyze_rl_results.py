@@ -2,29 +2,32 @@ import pandas as pd
 
 from eval_dataset.constants import ALL_EVAL_DATASET
 
-MODELS = {
-    "Qwen 7B Instruct (non Coder)": "Qwen/Qwen2.5-7B-Instruct",
-    "Qwen RL 01-24": "CodeDPO/qwen25-ins-7b-coderm-reinforce-plus",
-    "Qwen Test Case RL 01-25": "CodeDPO/qwen25-ins-7b-testcaserm-7b-reinforce-plus",
-}
+MODELS = [
+    "CodeDPO/llama3-RL-both-E2-0117-ckpt1624",
+    "CodeDPO/qwen25-coder-base-7b-testcaserm-7b-ppo-binary",
+    "CodeDPO/qwen25-ins-7b-testcaserm-7b-reinforce-plus_new_dataset",
+    "CodeDPO/qwen25-ins-7b-coderm-7b-ppo",
+    "CodeDPO/qwen25-ins-7b-testcaserm-7b-reinforce-plus-binary",
+    "CodeDPO/qwen25-ins-7b-coderm-reinforce-plus",
+    "CodeDPO/qwen25-ins-7b-testcaserm-7b-reinforce-plus",
+]
 
 
 def report_rl_results():
     results = []
     for dataset_name, dataset in ALL_EVAL_DATASET.items():
-        for short_model_name, model_path in MODELS.items():
+        for model_path in MODELS:
             try:
                 acc = dataset.load_accuracy(model_path)
                 results.append(
                     {
-                        "model": short_model_name,
+                        "model": model_path,
                         "dataset": dataset_name,
                         "accuracy": acc,
                     }
                 )
             except Exception as e:
-                print(f"failed to retrieve {dataset_name} + {short_model_name}")
-                # raise e
+                print(f"failed to retrieve {dataset_name} + {model_path}: {e}")
 
     df = pd.DataFrame(results)
     df = df.pivot_table(values="accuracy", index="model", columns="dataset")

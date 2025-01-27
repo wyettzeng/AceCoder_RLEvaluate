@@ -1,0 +1,32 @@
+import json
+from typing import List
+
+from eval_dataset.base_eval_dataset import EvalDatasetBaseClass
+
+"""This Files Contain Functions Which Relates to LiveCodeBench"""
+
+
+class LiveCodeBenchDataset(EvalDatasetBaseClass):
+    def get_saved_inference_file_path(self, model_path: str):
+        # the model representation is the last part of the path
+        model_repr = model_path[model_path.rfind("/") + 1:]
+        dir_path = f"inferenced_output/livecodebench/{model_repr}/"
+        dir_path += "Scenario.codegeneration_10_0.2_eval_all.json"
+        return dir_path
+
+    def load_accuracy(self, model_path: str) -> float:
+        """Get the one shot accuracy as a floating point number"""
+        # loading the saved inferences
+        file_path = self.get_saved_inference_file_path(model_path=model_path)
+        with open(file_path, "r") as f:
+            strr_input = f.read()
+        input_lst = json.loads(strr_input)
+        scores = [entry["pass@1"] for entry in input_lst]
+        return sum(scores) / len(scores)
+
+
+if __name__ == "__main__":
+    data = LiveCodeBenchDataset()
+    model_path = "CodeDPO/qwen25-coder-base-7b-testcaserm-7b-ppo-binary"
+    score = data.load_accuracy(model_path)
+    print(score)
