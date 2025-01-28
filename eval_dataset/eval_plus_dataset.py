@@ -16,6 +16,8 @@ class EvalPlusDataset(EvalDatasetBaseClass):
         else:
             dataset_flag = "humaneval"
         model_flag = model_path.replace("/", "--")
+        if model_flag.startswith("--"):
+            model_flag = model_flag[2:]
         return f"inferenced_output/evalplus/{dataset_flag}/{model_flag}_vllm_temp_{temp}.0-sanitized.eval_results.json"
 
     def load_accuracy(self, model_path: str) -> float:
