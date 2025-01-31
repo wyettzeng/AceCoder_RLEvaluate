@@ -3,13 +3,8 @@ import pandas as pd
 from eval_dataset.constants import ALL_EVAL_DATASET
 
 MODELS = [
-    #   "/data/code_llm/trained/qwen25-coder-7b-testcasermbinaryFalse-7b-reinforcepp_new_dataset_hard",
-    #   "/data/code_llm/trained/qwen25-coder-7b-testcasermbinaryTrue-7b-reinforcepp_new_dataset_hard-binary",
-    #   "Qwen/Qwen2.5-Coder-7B",
-    #   "CodeDPO/qwen25-coder-base-7b-testcaserm-7b-new-dataset-hard",
-    "/data/code_llm/trained/qwen25-coder-7b-rm-7b-reinforcepp_new_dataset_hard",
-    "/data/code_llm/trained/qwen25-base-7b-rm-7b-reinforcepp_new_dataset_hard",
-    "CodeDPO/qwen25-ins-7b-coderm_new_margin_scalebt-7b-reinforce-plus-episode_1",
+    "Qwen/Qwen2.5-7B-Instruct",
+    "Qwen/Qwen2.5-Coder-7B",
 ]
 
 

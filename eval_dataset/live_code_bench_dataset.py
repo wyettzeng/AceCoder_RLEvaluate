@@ -27,6 +27,6 @@ class LiveCodeBenchDataset(EvalDatasetBaseClass):
 
 if __name__ == "__main__":
     data = LiveCodeBenchDataset()
-    model_path = "CodeDPO/qwen25-coder-base-7b-testcaserm-7b-ppo-binary"
+    model_path = "Qwen2.5-Ins-7B"
     score = data.load_accuracy(model_path)
     print(score)
