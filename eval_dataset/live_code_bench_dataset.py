@@ -9,7 +9,8 @@ from eval_dataset.base_eval_dataset import EvalDatasetBaseClass
 class LiveCodeBenchDataset(EvalDatasetBaseClass):
     def get_saved_inference_file_path(self, model_path: str):
         # the model representation is the last part of the path
-        model_repr = model_path[model_path.rfind("/") + 1 :]
+        # model_repr = model_path[model_path.rfind("/") + 1 :]
+        model_repr = model_path.replace("/", "--")
         dir_path = f"inferenced_output/livecodebench/{model_repr}/"
         dir_path += "Scenario.codegeneration_10_0.2_eval_all.json"
         return dir_path

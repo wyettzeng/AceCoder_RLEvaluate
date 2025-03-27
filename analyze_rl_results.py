@@ -3,8 +3,10 @@ import pandas as pd
 from eval_dataset.constants import ALL_EVAL_DATASET
 
 MODELS = [
-    "Qwen/Qwen2.5-7B-Instruct",
-    "Qwen/Qwen2.5-Coder-7B",
+    "CodeDPO/qwen25-coder-inst-7b-reinforce-plus_v2_mini_processed_r1",
+    "CodeDPO/qwen25-coder-base-7b-reinforce-plus_v2_mini_processed_r1",
+    "CodeDPO/qwen25-coder-base-7b-reinforce-plus_v2_mini_processed_r1_grpo_kl",
+    "CodeDPO/qwen25-coder-inst-7b-reinforce-plus_v2_mini_processed_r1_cold_start",
 ]
 
 
